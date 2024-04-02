@@ -2,11 +2,6 @@
 import React, {useState, useEffect} from 'react';
 import {API_URL} from '../../constants';
 
-
-
-
-
-
 function PostsList(){
 	const [posts, setPosts] = useState([]);
 	const [, setLoading] = useState(true);
@@ -34,17 +29,18 @@ function PostsList(){
 
 	}, []);
 
-	return <div>
-	{posts.map((post) => (
-		<div key ={post.id} className = 'post-container'>
-			<h2>{post.title} </h2>
-		  <p>{post.body} </p>
+	return (
+		<div>
+			{posts.map((post) => (
+				<div key ={post.id} className = 'post-container'>
+					<h2>Title: {post.title} </h2>
+				  <p>Body: {post.body} </p>
+				</div>
+			))
+
+			}
 		</div>
-	))
-
-	}
-	</div>
-
+	)
 }
 
 export default PostsList;
